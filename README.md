@@ -28,13 +28,11 @@ The following Azure resources are created:
 
 ### How to Run
 
-1. Install Ansible and the required dependencies for Azure modules. Ansible requires a Linux-based OS to run. This project was tested on CentOS 7.3.1611
-    * Read more here: https://docs.ansible.com/ansible/2.7/scenario_guides/guide_azure.html
+1. Configure in playbook.cloud to download this repo
 2. Clone this repository
 3. cd to the project directory
-4. Set any variables in `inventories/vars.yaml`
-5. If the VM username or password is changed, also update these in `inventories/hosts`
-6. Set the following environment variables for the required credentials:
+4. Set any variables in config run in playbook.cloud
+5. Set the following environment variables for the required credentials in playbook.cloud:
     * AZURE_CLIENT_ID
     * AZURE_SECRET
     * AZURE_SUBSCRIPTION_ID
@@ -43,4 +41,4 @@ The following Azure resources are created:
     * CONNECTWISE_COMPANY_ID
     * CONNECTWISE_PUBLIC_KEY
     * CONNECTWISE_PRIVATE_KEY
-7. Run the shell script: `./run.sh`
+
