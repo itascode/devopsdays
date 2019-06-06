@@ -89,3 +89,16 @@
       slack:
         token: "{{ lookup('env', 'SLACK_TOKEN') }}"
         msg: "Deploy successful!"
+    - name: Create ConnectWise Manage Ticket
+      uri:
+        url: "https://api-na.myconnectwise.net/v4_6_release/apis/3.0/service/tickets"
+        method: POST
+        status_code: 201
+        user: "{{ lookup('env', 'CONNECTWISE_COMPANY_ID') + '+' + lookup('env', 'CONNECTWISE_PUBLIC_KEY') }}"
+        password: "{{ lookup('env', 'CONNECTWISE_PRIVATE_KEY') }}"
+        force_basic_auth: yes
+        body_format: json
+        body: 
+          company: 
+            id: "{{ connectwise_company_id }}"
+          summary: "Deploy successful!"
